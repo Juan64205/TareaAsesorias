@@ -3,18 +3,15 @@ package Practica7;
 import java.util.Random;
 import javax.swing.JOptionPane;
 
-public class Doctor implements Employee {
+public class Ingeniero_Software implements Employee {
 
     private String name;
     private int age;
-    private String position[] = {"Enfermero", "Especialista", "Cirujano"};
+    private String position[] = {"BackEnd", "Tester", "FrontEnd"};
 
-    public Doctor(String name, int age) {
+    public Ingeniero_Software(String name, int age) {
         this.name = name;
         this.age = age;
-    }
-
-    Doctor() {
     }
 
     @Override
@@ -70,5 +67,4 @@ public class Doctor implements Employee {
         double salario = getCantidadHorasTrabajadas() * getValorPorHora();
         return salario;
     }
-
 }

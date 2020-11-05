@@ -3,18 +3,15 @@ package Practica7;
 import java.util.Random;
 import javax.swing.JOptionPane;
 
-public class Doctor implements Employee {
+public class YouTuber implements Employee {
 
     private String name;
     private int age;
-    private String position[] = {"Enfermero", "Especialista", "Cirujano"};
+    private String position[] = {"Gamplays", "Viajes", "Tutoriales"};
 
-    public Doctor(String name, int age) {
+    public YouTuber(String name, int age) {
         this.name = name;
         this.age = age;
-    }
-
-    Doctor() {
     }
 
     @Override
