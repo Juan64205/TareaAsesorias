@@ -1,33 +1,31 @@
-
 package Practica7;
 
-import java.util.Random;
 import javax.swing.JOptionPane;
+import java.util.Random;
 
-
-public class Doctor implements Employee {
-
+public class Policia implements Employee{
+    
     String name;
     int age;
-    String position[] = {"Enfermero", "Especialista", "Cirujano"};
+    String position[] = {"Coronel", "Teniente", "Mayor"};
     
-    public Doctor(String name, int age) {
+    public Policia(){
+    
+    }
+    
+    public Policia(String name, int age){
         this.name = name;
         this.age = age;
-    }
+    } 
 
-    Doctor() {
-        
-    }
-    
     @Override
     public String getName() {
-        return "Francisco";
+        return "Jorge";
     }
 
     @Override
     public int getAge() {
-        return 30;
+        return 29;
     }
 
     @Override
@@ -36,38 +34,41 @@ public class Doctor implements Employee {
         return position[index];
     }
 
-    @Override 
+    @Override
     public double getHorasT(){
         double workhour = 0;
-        boolean Doct = false;
+        boolean policeman = false;
         try
         {
-            workhour = Double.parseDouble(JOptionPane.showInputDialog(null, "Por favor ingrese las horas trabajadas"));
-            Doct = true;
+            workhour = Double.parseDouble(JOptionPane.showInputDialog(null, "Por favor ingrese las horas trabajadas."));
+            policeman = true;
         }catch(Exception e){
-            Doct = false; 
-        }
+            policeman = false;
+        }    
+        
         return workhour;
     }
     
-    @Override 
+    @Override
     public double getValorHora(){
         double valhour = 0;
-        boolean Doct = false;
-        try 
+        boolean policeman = false;
+        try
         {
             valhour = Double.parseDouble(JOptionPane.showInputDialog(null, "Por favor ingrese el valor de la hora."));
-            Doct = true;
+            policeman = true;
         }catch(Exception e){
-            Doct = false;
+            policeman = false;
         }
+        
         return valhour;
     }
     
     @Override
     public double getSalario() {
-        double salary = getHorasT() * getValorHora(); 
+        double salary = getHorasT() * getValorHora();
         JOptionPane.showMessageDialog(null, "Su salario es:");
         return salary;
     }
+    
 }

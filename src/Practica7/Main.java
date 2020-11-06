@@ -1,44 +1,66 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Practica7;
 import Practica7.Doctor;
 import java.util.ArrayList;
-import java.util.Scanner;
+//import java.util.Scanner;
+import javax.swing.JOptionPane;
 
 public class Main {
 
     public static void main(String[] args) {
     
-        Scanner t = new Scanner(System.in);
-        System.out.println("Ingrese cantidad de nombres.");
-        int cant = t.nextInt();
+        int cant = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingresa la cantidad de nombres."));
         ArrayList<String> Lista = new ArrayList<String>();
-        int vector[] = new int [cant];
+        int vector[] = new int[cant];
         String name;
-        int age;
+        int age; 
         String position;
+        String vec = " ";
+        Doctor Doc = new Doctor();
+        Bombero Fire = new Bombero();
+        Policia Sherif = new Policia();
+       
         
         for (int i = 0; i < cant; i++) {
-            System.out.println("Porfavor ingrese su nombre.");
-            Lista.add(t.nextLine());
+            name = JOptionPane.showInputDialog("Ingrese el nombre");
+            boolean nm = name.matches("^([A-Z]{1}[a-z])$");
+            Lista.add(name);
         }
         
-        for (int i = 0; i < cant; i++) {
-            System.out.println("Porfavor ingrese su edad.");
-            vector[i] = t.nextInt();
+        for (int i = 0; i < cant; i++){
+            boolean old = false;
+            try
+            {
+                age = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la edad."));
+                vector[i] = age;
+                vec = vec + vector[i];
+                old = true;
+            }catch(Exception e){
+                old = false;
+            }
+        }
+        
+        for (int i = 0; i < cant; i++){
+            JOptionPane.showMessageDialog(null, Doc.getName());
+            JOptionPane.showMessageDialog(null, Doc.getAge());
+            JOptionPane.showMessageDialog(null, Doc.getPosition());
+        }
+        
+        for (int i = 0; i < cant; i++){
+            JOptionPane.showMessageDialog(null, Fire.getName());
+            JOptionPane.showMessageDialog(null, Fire.getAge());
+            JOptionPane.showMessageDialog(null, Fire.getPosition());
+            JOptionPane.showMessageDialog(null, Fire.getSalario());
+        }
+        
+        for (int i = 0; i < cant; i++){
+            JOptionPane.showMessageDialog(null, Sherif.getName());
+            JOptionPane.showMessageDialog(null, Sherif.getAge());
+            JOptionPane.showMessageDialog(null, Sherif.getPosition());
+            JOptionPane.showMessageDialog(null, Sherif.getSalario());
         }
          
-        System.out.println(Lista);
-        System.out.println(vector);
-        /*
-        Doctor Doc = new Doctor("Jhon", 30);
-        Doc.getName();
-        Doc.getAge();
-        Doc.getPosition();
-        System.out.println(Doc.getName()+" "+Doc.getAge()+" "+Doc.getPosition());  
-        */
+            JOptionPane.showMessageDialog(null, Lista);
+            JOptionPane.showMessageDialog(null, vec);
+            JOptionPane.showMessageDialog(null, Doc.getSalario());
     }
 }
